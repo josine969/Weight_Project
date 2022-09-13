@@ -23,5 +23,26 @@ print("Day", today, "Time", time, "Feeling", feeling)
 # Add value
 curs.execute("INSERT INTO run VALUES (?, ?, ?)", (today, time, feeling))
 
+
+# New asks
+print("Insert your Kg")
+kg = input()
+
+print("Insert your Thigh")
+thigh = input()
+
+print("Insert your Waist")
+waist = input()
+
+print("Insert your Arm")
+arm = input()
+
+print("Insert your Chest")
+chest = input()
+
+
+curs.execute("INSERT INTO profile VALUES (?, ?, ?, ?, ?, ?)", (today, kg, thigh, waist, arm, chest))
+
+# Save changes in database and close connection
 conn.commit()
 conn.close()
