@@ -1,14 +1,21 @@
 # Import SQLITE module
 import sqlite3
-conn = sqlite3.connect('futbol.db')
+# Connect to Database
+conn = sqlite3.connect('weight.db')
+# Create a cursor to move in database
 curs = conn.cursor()
-# Creo Tabla
-#curs.execute('create table Liga_Verano (Nombre, Puntos, Media)')
-# Añado un valor
-#curs.execute("insert into Equipo values ('Oviedo', 60)")
+
+# Create a table
+curs.execute('create table profile (Date, Kg, Thigh, Waist, Arm, Chest)')
+curs.execute('create table run (Date, Time , Feeling)')
+
+# Add value
+#curs.execute("insert into run values ('05/06', 34.20, 'Not bad')")
+
 # Añado muchos valores
-values = [('Compostela', 0, 50), ('Valencia', 0, 65), ('Oviedo', 0, 70), ('Deportivo', 0, 80)]
-curs.executemany('insert into Liga_Verano values(?,?,?)', values)
-# Hago Commit y cierro conexion
+#values = [('05/06', 40.20, 'Good'), ('06/06', 42.22, 'Correct'), ('07/07', 50.21, 'Bad'), ('08/08', 50.60, 'The Worst day ever')]
+#curs.executemany('insert into Liga_Verano values(?,?,?)', values)
+
+# Commit to save the changes and close the connection
 conn.commit()
 conn.close()
