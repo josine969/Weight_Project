@@ -18,5 +18,10 @@ time = input()
 print("How do you feel?")
 feeling = input()
 
+print("Day", today, "Time", time, "Feeling", feeling)
+
 # Add value
-curs.execute("insert into run values (today, time, feeling)")
+curs.execute("INSERT INTO run VALUES (?, ?, ?)", (today, time, feeling))
+
+conn.commit()
+conn.close()
